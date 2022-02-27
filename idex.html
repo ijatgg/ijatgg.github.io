@@ -230,23 +230,23 @@
        </div>
 
        <div class="col m7 s12">
-         <form>
+         <form name="david-parker-universal">
            <div class="card-panel">
              <h5>Please fill out your message</h5>
              <div class="input-field">
-               <input type="text" name="name" id="name">
+               <input type="text" name="name" id="name" name="name">
                <label for="name">Name</label>
              </div>
              <div class="input-field">
-               <input type="email" name="email" id="email">
+               <input type="email" name="email" id="email" name="email">
                <label for="email">Email</label>
              </div>
              <div class="input-field">
-               <input type="text" name="phone" id="phone">
+               <input type="text" name="phone" id="phone" name="phone">
                <label for="phone">Phone</label>
              </div>
              <div class="input-field">
-               <textarea name="message" id="message" class="materialize-textarea"></textarea>
+               <textarea name="message" id="message" class="materialize-textarea" name="message"></textarea>
                <label for="message">Message</label>
              </div>
              <button type="submit" class="btn red lighten-1">SEND</button>
@@ -286,5 +286,19 @@
         const materi = document.querySelectorAll('.materialboxed')
         M.Materialbox.init(materi);
       </script>
+
+
+      <script>
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbw5kvMoJxfMtaYsYN9dZTx1xo7SXOusXacWxDCA0d26pENatujKpyHbii5XCAkew68Skg/exec'
+  const form = document.forms['david-parker-universal']
+
+  form.addEventListener('submit', e => {
+    e.preventDefault()
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => console.log('Success!', response))
+      .catch(error => console.error('Error!', error.message))
+  })
+</script>
+
     </body>
   </html>
